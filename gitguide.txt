@@ -1,22 +1,27 @@
 git branch                         [lists all branches]
-=================================
-git pull origin develop            [get latest]
+―――――――――――――――――――――――――――――――――
+git pull origin master             [get latest]
 
-git checkout -b <feature> develop  [create new branch]
-=================================
+git checkout -b <feature> master   [create new branch]
+―――――――――――――――――――――――――――――――――
 TortoiseGit -> Add
 
 git commit -a -m "message"         [commit changes locally]
-=================================
-git checkout develop               [switch branch]
+―――――――――――――――――――――――――――――――――
+git checkout master                [switch branch]
 
-git pull origin develop            [get latest]
+git pull origin master             [get latest]
+
+git checkout <feature>
+git rebase master                  [see conflicts]
+git checkout master
 
 git merge --no-ff <feature>        [merge changes]
+gitk                               [view merged changes]
 
-git push origin develop            [push changes to remote]
+git push origin master             [push changes to remote]
 
 git branch -d <feature>            [delete branch]
-=================================
+―――――――――――――――――――――――――――――――――
 git clean -d -f -X                 [clean branch]
-=================================
+―――――――――――――――――――――――――――――――――
