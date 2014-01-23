@@ -1,0 +1,22 @@
+git branch                         [lists all branches]
+=================================
+git pull origin develop            [get latest]
+
+git checkout -b <feature> develop  [create new branch]
+=================================
+TortoiseGit -> Add
+
+git commit -a -m "message"         [commit changes locally]
+=================================
+git checkout develop               [switch branch]
+
+git pull origin develop            [get latest]
+
+git merge --no-ff <feature>        [merge changes]
+
+git push origin develop            [push changes to remote]
+
+git branch -d <feature>            [delete branch]
+=================================
+git clean -d -f -X                 [clean branch]
+=================================
