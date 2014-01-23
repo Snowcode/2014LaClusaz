@@ -131,6 +131,7 @@
         private static T Transform(KeyStringDictionary entry)
         {
             var result = Activator.CreateInstance<T>();
+            result.Add("UID", entry["Unique ID"]);
             result.Add("DAY", entry["date"].Substring(0, 10).ToDate());
             result.Add("ADDRESS", Address(entry));
             result.Add("POSTCODE", entry["Postcode"].RemoveAny(' ').ToPostcode());
