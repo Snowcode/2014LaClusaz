@@ -1,0 +1,40 @@
+# folders
+.svn/
+bin/
+obj/
+bundles/
+packages/
+temp/
+test-results/
+xunit-test-results/
+
+# filetypes
+*.bak
+*.Cache
+*.chw
+*.dbmdl
+*.dotCover
+*.log
+*.suo
+*.svn-base
+*.user
+*.vs10x
+*.Publish.xml
+*.Resharper.user
+*.sln.cache
+*.sln.docstates
+
+# files
+all-wcprops
+Ankh.Load
+Ankh.NoLoad
+entries
+lint.db
+Reflector.cfg
+StyleCop.Cache
+Thumbs.db
+
+# file patterns
+*crunchproject*
+*crunchsolution*
+_Resharper*
