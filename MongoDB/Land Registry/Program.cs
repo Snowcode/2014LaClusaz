@@ -30,8 +30,11 @@
         {
             ////Load();
 
-            var destination = new FileInfo(@"C:\Development.Temp\query.csv");
-            TempCsvFile.Create(Query(), destination);
+            ////var destination = new FileInfo(@"C:\Development.Temp\query.csv");
+            ////TempCsvFile.Create(Query(), destination);
+
+            var destination = new FileInfo(@"C:\Development.Temp\test.csv");
+            TempCsvFile.Create(Aggregate(), destination);
         }
 
         private static IEnumerable<BsonDocument> Entries()
@@ -121,6 +124,21 @@
                                   {"AVERAGE PRICE", XmlConvert.ToString(average)},
                                   {"TALLY", XmlConvert.ToString(tally[item.Key])}
                               };
+        }
+
+        private static IEnumerable<KeyStringDictionary> Aggregate()
+        {
+            var database = Database;
+            var documents = new MongoQueryable<BsonDocument>(new MongoQueryProvider(database.GetCollection("PRICE PAID")));
+            foreach (var grp in documents.GroupBy(document => document.GetValue("POSTCODE").AsString.ToPostcode().Area))
+            {
+                yield return new KeyStringDictionary
+                                 {
+                                     {"POSTAL AREA", grp.Key},
+                                     {"AVERAGE PRICE", XmlConvert.ToString(grp.Average(x => x.GetValue("PRICE").AsInt32) / grp.Count())},
+                                     {"TALLY", XmlConvert.ToString(grp.Count())}
+                                 };
+            }
         }
     }
 }
